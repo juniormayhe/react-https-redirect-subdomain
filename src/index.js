@@ -9,7 +9,11 @@ const isLocalHost = (hostname) =>
 
 const tryGetSubdomain = (subdomain, url) => {
   let formattedSubdomain = '';
-  if (subdomain && url.indexOf(`http://${subdomain}.`) === -1) {
+  if (
+    subdomain &&
+    url.indexOf(`http://${subdomain}.`) === -1 &&
+    url.indexOf(`https://${subdomain}.`) === -1
+  ) {
     formattedSubdomain = `${subdomain}.`;
   }
   return formattedSubdomain;
@@ -22,17 +26,18 @@ const HttpsRedirect = ({ debug, disabled, subdomain, children }) => {
       disabled,
       subdomain,
       children,
+      windowLocationHref: window.location.href,
     };
 
     window.console.log(
-      'react-https-redirect-subdomain [starting with settings]',
+      'react-https-redirect-subdomain [starting]',
       settings
     );
   }
   const canRedirect = !disabled &&
     typeof window !== 'undefined' &&
     window.location &&
-    window.location.protocol === 'http:' &&
+    // window.location.protocol === 'http:' &&
     !isLocalHost(window.location.hostname);
 
   if (canRedirect) {
@@ -52,7 +57,7 @@ const HttpsRedirect = ({ debug, disabled, subdomain, children }) => {
       );
     }
 
-    const finalUrl = url.replace(/^http(?!s):\/\//, `https://${subdomain}`);
+    const finalUrl = url.replace(/^(http|https):\/\//, `https://${subdomain}.`);
 
     if (debug) {
       window.console.log(
