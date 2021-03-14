@@ -1,6 +1,6 @@
 {
   "name": "react-https-redirect-subdomain",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Force a redirect to HTTPS with subdomain when not on a local web server.",
   "main": "lib/index.js",
   "scripts": {
