@@ -1,0 +1,41 @@
+{
+  "name": "react-https-redirect-subdomain",
+  "version": "0.1.1",
+  "description": "Force a redirect to HTTPS with subdomain when not on a local web server.",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "babel --presets es2015,stage-0,react -d lib/ src/",
+    "lint": "eslint src",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juniormayhe/react-https-redirect-subdomain.git"
+  },
+  "keywords": [
+    "react",
+    "https",
+    "redirect",
+    "subdomain",
+    "component"
+  ],
+  "author": "Junior Mayhe (https://github.com/juniormayhe)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juniormayhe/react-https-redirect-subdomain/issues"
+  },
+  "homepage": "https://github.com/juniormayhe/react-https-redirect-subdomain#readme",
+  "devDependencies": {
+    "babel-cli": "6.5.1",
+    "babel-eslint": "5.0.0",
+    "babel-preset-es2015": "6.5.0",
+    "babel-preset-react": "6.5.0",
+    "babel-preset-stage-0": "6.5.0",
+    "eslint": "2.2.0",
+    "eslint-config-airbnb": "6.0.2",
+    "eslint-plugin-react": "4.1.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.8"
+  }
+}
