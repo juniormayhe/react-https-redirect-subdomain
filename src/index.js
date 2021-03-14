@@ -48,7 +48,7 @@ const HttpsRedirect = ({ debug, disabled, subdomain, children }) => {
       );
     }
 
-    const url = tryGetSubdomain(subdomain, window.location.href);
+    const prefixWithDot = tryGetSubdomain(subdomain, window.location.href);
 
     if (debug) {
       window.console.log(
@@ -57,7 +57,10 @@ const HttpsRedirect = ({ debug, disabled, subdomain, children }) => {
       );
     }
 
-    const finalUrl = url.replace(/^(http|https):\/\//, `https://${subdomain}.`);
+    const finalUrl = window.location.href.replace(
+      /^(http|https):\/\//,
+      `https://${prefixWithDot}`
+    );
 
     if (debug) {
       window.console.log(
